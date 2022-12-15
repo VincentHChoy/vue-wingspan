@@ -1,0 +1,79 @@
+@import './base.css';
+
+
+a,
+.green {
+  text-decoration: none;
+  color: white;
+  transition: 0.4s;
+}
+
+@media (hover: hover) {
+  a:hover {
+    background-color: hsla(160, 100%, 37%, 0.2);
+  }
+}
+
+@media (min-width: 1024px) {
+  body {
+    display: flex;
+    place-items: center;
+  }
+
+}
+
+@font-face {
+  font-family: Handwritten;
+  src: url(ArchitectsDaughter-Regular.ttf);
+}
+
+@font-face {
+  font-family: Mono;
+  src: url(Jackwrite.woff2);
+}
+
+pre, code {
+  font-family: Mono !important;
+}
+
+html, body {
+  max-width: 100% !important;
+  overflow: auto;
+}
+
+
+
+*:not(html):not(body) {
+  font-family: 'Handwritten', cursive;
+  font-size: 1.25rem;
+  background: transparent;
+  padding: 0.5rem 0.5rem;
+  margin: .5rem .25rem .25rem;
+  color: #41403E;
+  outline: none;
+  box-shadow: 1em 1.5em 1.5em -1em rgba(0, 0, 0, 0.5);
+  border-radius: 255px 15px 225px 15px/15px 225px 15px 255px;
+  box-sizing: border-box;
+  border: solid 0.1em #4140344E;
+  width: fit-content;
+  max-width: 99%;
+
+}
+
+/* Media */
+img, video, iframe {
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+::cue {
+  color: #d9e365;
+  background-color: rgba(0, 0, 0, 0.7);
+  font-family: "Mono";
+  font-size: 2rem;
+}
+
+
+/* Rotations */
+
+
