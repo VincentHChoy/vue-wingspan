@@ -9,7 +9,7 @@ export default {
     return {
       counter: this.resource,
       totalEggs: 0,
-      selected: true,
+      selected: false,
     };
   },
   methods: {
@@ -23,7 +23,7 @@ export default {
         if(this.totalEggs !== 0 && this.totalEggs !== this.counter) return this.totalEggs--
 
       } else{
-        if(this.counter !== 0) return this.counter--
+        if(this.counter !== 0) this.counter--
       }
     },
     getImageUrl() {
@@ -39,7 +39,7 @@ export default {
 
 <template>
   <div class="row">
-    <button min="0" @click="minus()" class="counter">-</button>
+    <button @click="minus()" class="counter">-</button>
     <div class="resources">
       <img v-if="!egg" width="40" height="40" :src="getImageUrl()" />
       <img
@@ -54,7 +54,7 @@ export default {
       <p v-if="egg" class="hidden-border">{{ counter }}/{{totalEggs}}</p>
     </div>
     <button v-if="!egg" @click="counter++" class="counter">+</button>
-    <button v-if="egg" @click="plus(counter)" class="counter">+</button>
+    <button v-if="egg" @click="plus()" class="counter">+</button>
   </div>
 </template>
 
