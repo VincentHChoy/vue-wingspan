@@ -21,7 +21,7 @@ data() {
 
 <template>
   <section class="resources">
-    <Food filename="egg.png" :method="minus" :resource=egg />
+    <Food filename="egg.png" :egg=true :method="minus" :resource=egg />
     <Food filename="bug.png" :resource="bug"/>
     <Food filename="cherry.png" :resource="cherry"/>
     <Food filename="wheat.png" :resource="wheat"/>
