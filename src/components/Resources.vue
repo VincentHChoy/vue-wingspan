@@ -8,6 +8,7 @@ import Resources from "./Food.vue";
 export default {
 data() {
   return {
+    feather:0,
     egg:0,
     bug:0,
     cherry:0,
@@ -21,6 +22,7 @@ data() {
 
 <template>
   <section class="resources">
+    <Food filename="feather.png" :resource="feather" />
     <Food filename="egg.png" :egg=true :method="minus" :resource=egg />
     <Food filename="bug.png" :resource="bug"/>
     <Food filename="cherry.png" :resource="cherry"/>
