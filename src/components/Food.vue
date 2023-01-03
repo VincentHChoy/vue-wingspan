@@ -10,6 +10,7 @@ export default {
       counter: this.resource,
       totalEggs: 0,
       selected: false,
+      interval:false,
     };
   },
   methods: {
@@ -33,13 +34,30 @@ export default {
       this.selected = !this.selected;
       console.log("selected is now:", this.selected);
     },
+    startPlus(){
+    	if(!this.interval){
+      	this.interval = setInterval(() => this.counter++, 50)	
+      }
+    },
+    startMinus(){
+    	if(!this.interval){
+      	this.interval = setInterval(() => {
+          if(this.counter !== 0) this.counter--
+        }, 50)	
+      }
+    },
+    stop(){
+      console.log('here')
+    	clearInterval(this.interval)
+      this.interval = false
+    }
   },
 };
 </script>
 
 <template>
   <div class="row">
-    <button @click="minus()" class="counter">-</button>
+    <button @mousedown="startMinus" @mouseleave="stop" @mouseup="stop" @touchstart="startMinus" @touchend="stop" @touchcancel="stop" :class="{active:interval}" class="counter">-</button>
     <div class="resources">
       <img v-if="!egg" width="40" height="40" :src="getImageUrl()" />
       <img
@@ -53,12 +71,13 @@ export default {
       <p v-if="!egg" class="hidden-border">{{ counter }}</p>
       <p v-if="egg" class="hidden-border">{{ counter }}/{{totalEggs}}</p>
     </div>
-    <button v-if="!egg" @click="counter++" class="counter">+</button>
+    <button v-if="!egg" @mousedown="startPlus" @mouseleave="stop" @mouseup="stop" @touchstart="startPlus" @touchend="stop" @touchcancel="stop" :class="{active:interval}" class="counter">+</button>
     <button v-if="egg" @click="plus()" class="counter">+</button>
   </div>
 </template>
 
 <style scoped>
+
 .none{
   background-color: none;
 }
@@ -90,6 +109,10 @@ export default {
 
 .counter {
   cursor: pointer;
+}
+
+.counter:hover {
+  background: rgb(86, 153, 196);
 }
 
 .resources {
